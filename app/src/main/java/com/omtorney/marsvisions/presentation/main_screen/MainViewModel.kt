@@ -21,22 +21,22 @@ class MainViewModel @Inject constructor(
 
     fun onEvent(event: MainScreenEvent) {
         when (event) {
-            is MainScreenEvent.Load -> fetchPhotos(event.rover, event.sol, event.camera)
+            is MainScreenEvent.Load -> fetchPhotos(event.rover, event.sol)
         }
     }
 
-    private fun fetchPhotos(rover: String, sol: String, camera: String) {
+    private fun fetchPhotos(rover: String, sol: String) {
         viewModelScope.launch {
-            repository.fetchPhotos(rover, sol.toInt(), camera).collect { result ->
+            repository.fetchPhotos(rover, sol.toInt()).collect { result ->
                 state = when (result) {
                     is Resource.Loading -> {
-                        state
+                        state.copy(isLoading = true)
                     }
                     is Resource.Success -> {
-                        state.copy(photos = result.data ?: emptyList())
+                        state.copy(photos = result.data ?: emptyList(), isLoading = false)
                     }
                     is Resource.Error -> {
-                        state.copy(error = result.message)
+                        state.copy(error = result.message, isLoading = false)
                     }
                 }
             }

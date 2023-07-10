@@ -24,7 +24,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.omtorney.marsvisions.R
-import com.omtorney.marsvisions.presentation.main_screen.Rover
 
 @Composable
 fun CustomSpinner(

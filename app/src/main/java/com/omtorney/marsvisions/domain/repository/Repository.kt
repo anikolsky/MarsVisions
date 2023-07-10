@@ -5,5 +5,5 @@ import com.omtorney.marsvisions.util.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface Repository {
-    fun fetchPhotos(rover: String, sol: Int, camera: String): Flow<Resource<List<Photo>>>
+    fun fetchPhotos(rover: String, sol: Int): Flow<Resource<List<Photo>>>
 }

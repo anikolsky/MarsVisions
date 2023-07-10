@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "SnapCase"
+rootProject.name = "MarsVisions"
 include(":app")

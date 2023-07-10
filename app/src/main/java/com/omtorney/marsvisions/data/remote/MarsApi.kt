@@ -12,7 +12,7 @@ interface MarsApi {
     suspend fun getPhotos(
         @Path("rover") rover: String,
         @Query("sol") sol: Int,
-        @Query("camera") camera: String,
+//        @Query("camera") camera: String,
 //        @Query("page") page: Int = 1,
         @Query("api_key") apiKey: String = API_KEY
     ): PhotosDto
